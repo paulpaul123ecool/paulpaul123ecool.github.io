@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users - Claude AI Tips</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .users-list {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .user-item {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+
+        .user-item:last-child {
+            border-bottom: none;
+        }
+
+        .nav-buttons {
+            margin-top: 2rem;
+            text-align: center;
+        }
+
+        .nav-buttons a {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #2c3e50;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 0 0.5rem;
+        }
+
+        .nav-buttons a:hover {
+            background-color: #34495e;
+        }
+
+        .no-users {
+            text-align: center;
+            color: #666;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Registered Users</h1>
+        <p>List of all registered users for Claude AI Tips</p>
+    </header>
+
+    <div class="container">
+        <div class="users-list">
+            <div id="usersList">
+                <!-- Users will be populated here by JavaScript -->
+            </div>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="index.html">Back to Tips</a>
+            <a href="login.html">Login Page</a>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const usersList = document.getElementById('usersList');
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+            if (users.length === 0) {
+                usersList.innerHTML = `
+                    <div class="no-users">
+                        <p>No users have registered yet.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            users.forEach((user, index) => {
+                const userElement = document.createElement('div');
+                userElement.className = 'user-item';
+                userElement.innerHTML = `
+                    <p><strong>User ${index + 1}:</strong> ${user.email}</p>
+                `;
+                usersList.appendChild(userElement);
+            });
+        }
+    </script>
+</body>
+</html> 

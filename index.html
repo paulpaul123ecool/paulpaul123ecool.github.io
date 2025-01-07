@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Claude AI Tips & Tricks</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        header {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .tip-card {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .tip-card h2 {
+            color: #2c3e50;
+            margin-top: 0;
+        }
+
+        .tip-card p {
+            color: #34495e;
+        }
+
+        .highlight {
+            background-color: #e74c3c;
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Claude AI Tips & Tricks</h1>
+        <p>Learn how to use Claude more effectively</p>
+    </header>
+
+    <div class="container">
+        <div class="tip-card">
+            <h2>1. Be Specific in Your Requests</h2>
+            <p>The more specific your prompt, the better the response. Include details like:</p>
+            <ul>
+                <li>Desired output format</li>
+                <li>Context of your problem</li>
+                <li>Any constraints or requirements</li>
+            </ul>
+        </div>
+
+        <div class="tip-card">
+            <h2>2. Use System Prompts</h2>
+            <p>Start conversations with clear instructions about how you want Claude to behave and respond. For example:</p>
+            <p><span class="highlight">Example:</span> "You are an expert Python developer. Please review my code and suggest improvements."</p>
+        </div>
+
+        <div class="tip-card">
+            <h2>3. Break Down Complex Tasks</h2>
+            <p>Instead of asking one complex question, break it down into smaller, manageable parts. This helps Claude provide more accurate and focused responses.</p>
+        </div>
+
+        <div class="tip-card">
+            <h2>4. Request Code Examples</h2>
+            <p>When asking for programming help, request specific code examples. Claude can provide detailed code snippets with explanations.</p>
+        </div>
+
+        <div class="tip-card">
+            <h2>5. Use Follow-up Questions</h2>
+            <p>Don't hesitate to ask for clarification or more details about Claude's responses. The AI maintains context throughout the conversation.</p>
+        </div>
+
+        <div class="tip-card">
+            <h2>6. Format Your Code</h2>
+            <p>When sharing code, use proper formatting and indentation. This helps Claude better understand and analyze your code.</p>
+        </div>
+
+        <div class="user-info" style="text-align: center; margin-top: 2rem; padding: 1rem; background-color: white; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+            <p>Logged in as: <span id="userEmail">Guest</span></p>
+            <a href="users.html" style="display: inline-block; padding: 0.5rem 1rem; background-color: #2c3e50; color: white; text-decoration: none; border-radius: 4px; margin-top: 1rem;">View All Users</a>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                document.getElementById('userEmail').textContent = currentUser;
+            } else if (document.referrer.includes('login.html')) {
+                window.location.href = 'login.html';
+            }
+        }
+    </script>
+</body>
+</html> 
